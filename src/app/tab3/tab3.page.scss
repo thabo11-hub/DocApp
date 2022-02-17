@@ -1,0 +1,23 @@
+ion-content{
+    --background: url(https://images.pexels.com/photos/4021773/pexels-photo-4021773.jpeg?cs=srgb&dl=pexels-karolina-grabowska-4021773.jpg&fm=jpg);
+}
+
+ion-card{
+  padding: 2%;  
+  margin-top: -7%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+// container{
+//  flex-wrap: wrap;
+// }
+
+* {
+    margin: 0;
+    padding: 0%;
+}
+
+ion-label {
+    margin: 0px !important;
+}

@@ -1,0 +1,46 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    
+    <ion-buttons slot="start">
+      <ion-button color="primary" routerLink="/tabs/tab1">
+        <ion-icon slot="icon-only" name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/signup" >Sign up</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div id="header">
+    <h1>Login</h1>
+    <img src="../../../assets/Medicine-Logo-Graphics-4647232-1-1-580x386.jpg" class="smallLogo" />
+  </div>
+
+  <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+      <ion-list inset style="background-color: #bde2dd;"> 
+       
+        <ion-item > 
+        <ion-label position="floating">Email</ion-label> 
+        <ion-input  autocomplete="off" name="username"  placeholder="Enter Email" formControlName="email"></ion-input>
+      </ion-item> 
+
+       <ion-item> 
+        <ion-label position="floating">Password</ion-label>
+        <ion-input  placeholder="Enter Password" type="password" formControlName="password" ></ion-input>
+      </ion-item> 
+   
+      <ion-button expand="block" shape="round" color="secondary" type="submit">Login</ion-button>
+      
+      
+      </ion-list> 
+        
+      <a [routerLink]="['/register']" class="small-text"  text-align="center">Create Account?</a>
+  
+    
+    
+  </form>
+
+</ion-content>

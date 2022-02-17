@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Update profile</ion-title>
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+      <ion-col size-md="6" push-md="3">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>Update Profile</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            <form [formGroup]="userUpdateForm">
+              <ion-item>
+                <ion-label position="floating">Username</ion-label>
+                <ion-input
+                  type="text"
+                  formControlName="username"
+                  required="true"
+                  color="secondary"
+                  minlength="2"
+                ></ion-input>
+                <div *ngIf="username.invalid && username.touched">
+                  <small *ngIf="username.errors?.required" class="text-danger"
+                    >Required</small
+                  >
+                  <small *ngIf="username.errors?.minlength" class="text-danger"
+                    >Your name must be atleast greater than 2 digits</small
+                  >
+                </div>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Email</ion-label>
+                <ion-input
+                  type="email"
+                  required
+                  formControlName="userEmail"
+                  minlength="3"
+                ></ion-input>
+                <div *ngIf="userEmail.invalid && userEmail.touched">
+                  <small *ngIf="userEmail.errors?.required" class="text-danger"
+                    >Required</small
+                  >
+                  <small
+                    *ngIf="userEmail.errors?.email"
+                    class="text-danger"
+                    >Please enter a valid email</small
+                  >
+                </div>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Phone</ion-label>
+                <ion-input
+                  type="tel"
+                  formControlName="userPhone"
+                  minlength="10"
+                ></ion-input>
+                <div *ngIf="userPhone.invalid && userPhone.touched">
+                  <small *ngIf="userPhone.errors?.required" class="text-danger"
+                    >Required</small
+                  >
+                  <small *ngIf="userPhone.errors?.minlength" class="text-danger"
+                    >Your Phone must be atleast greater than 10 digits</small
+                  >
+                </div>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Password</ion-label>
+                <ion-input
+                  type="password"
+                  formControlName="userPassword"
+                  minlength="6"
+                ></ion-input>
+                <div *ngIf="userPassword.invalid && userPassword.touched">
+                  <small
+                    *ngIf="userPassword.errors?.required"
+                    class="text-danger"
+                    >Required</small
+                  >
+                  <small
+                    *ngIf="userPassword.errors?.minlength"
+                    class="text-danger"
+                  >
+                    Your password must be atleast greater than 6 digits
+                  </small>
+                </div>
+              </ion-item>
+              
+              <div style="display: flex; align-items: center; justify-content: center;">
+                <ion-button
+                  type="submit"
+                  (click)="onSubmit()"
+                  [disabled]="userUpdateForm.invalid"
+                >
+                  Update
+                </ion-button>
+              </div>
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ loadedUser.name }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/users"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onDeleteUser()">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed class="ion-no-padding">
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <ion-img [src]="loadedUser.imageUrl" ></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="text-center">
+        <h1>{{  loadedUser.name }}</h1>
+        <h2>{{  loadedUser.specilization }}</h2>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

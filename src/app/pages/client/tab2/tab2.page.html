@@ -1,0 +1,78 @@
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-item lines="none">
+      <ion-label style="font-weight: 800;">
+        My appointments
+        <p style="font-weight: 400;color: #433465 ;">{{today | date:'fullDate'}}</p>
+      </ion-label>
+      <ion-buttons slot="start">
+        <ion-button color="primary" routerLink="/tab1">
+          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+    
+    </ion-buttons>
+    <ion-segment>
+      <ion-segment-button value="Upcoming">
+        Upcoming
+      </ion-segment-button>
+      <ion-segment-button value="past">
+        Past
+      </ion-segment-button>
+    </ion-segment>
+    <ion-buttons end>
+      
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card *ngFor="let book of booking; let i = index" [class.active]="i == currentIndex"
+  (click)="setActiveBooking(book, i)"
+class="ion-margin">
+    <ion-card-header>
+
+      <ion-item>
+        <ion-select >{{this.bookingList.description}}
+        <ion-select-option value="low">therapy</ion-select-option>
+        <ion-select-option value="middle">x-ray</ion-select-option>
+        <ion-select-option value="high" selected>Surgery</ion-select-option>
+        </ion-select>
+        <ion-label> {{ this.bookingList.description}</ion-label>
+      </ion-item>
+
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-label>Booked Date:{{this.bookingList.date| date:'fullDate'}}</ion-label>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-item button (click)="updateBooking(book)" (click)="OpenModal()">
+        <ion-icon name="create-outline"></ion-icon>
+        <p>Update</p>
+      </ion-item>
+
+      <ion-item button (click)="deleteBooking(book)">
+        <ion-icon name="trash-outline"></ion-icon>
+        <p>Cancel Appointment</p>
+      </ion-item>
+    </ion-row>
+
+  </ion-card> 
+  
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="retrieveBooking()" (click)="OpenModal()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add User</ion-title>
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid >
+    <ion-row class="ion-align-items-center">
+      <ion-col size-md="6" push-md="3">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>Add new Doctor</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            <form 
+              [formGroup]="usersForm"
+            >
+              <ion-item>
+                <ion-label position="floating">Dr Name</ion-label>
+                <ion-input type="text" formControlName="username" required="true" color="secondary" minlenght="2"></ion-input>
+                <div *ngIf="username.invalid && username.touched">
+                  <small *ngIf="username.errors?.required" class="text-danger"
+                    >Required</small
+                  >
+                  <small *ngIf="username.errors?.minlength" class="text-danger"
+                    >Dr name must be atleast greater than 2 characters</small
+                  >
+                </div>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Specialization</ion-label>
+                <ion-input type="text" formControlName="specilization"></ion-input>
+                <div *ngIf="specilization.invalid && specilization.touched">
+                  <small *ngIf="specilization.errors?.required" class="text-danger"
+                    >Required</small
+                  >
+                </div>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Email</ion-label>
+                <ion-input type="email" formControlName="email"></ion-input>
+                <div *ngIf="email.invalid && email.touched">
+                  <small *ngIf="email.errors?.required" class="text-danger"
+                    >Required</small
+                  >
+                  <small *ngIf="email.errors?.email" class="text-danger"
+                    >Please enter a valid email</small
+                  >
+                </div>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Image URL</ion-label>
+                <ion-input type="text"
+                formControlName="imageUrl"></ion-input>
+                <div *ngIf="imageUrl.invalid && imageUrl.touched">
+                  <small *ngIf="imageUrl.errors?.required" class="text-danger"
+                    >Required</small
+                  >
+                </div>
+              </ion-item>
+
+              <!-- <ion-item>
+                <ion-label position="floating">Password</ion-label>
+                <ion-input type="password"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Confirm Password</ion-label>
+                <ion-input type="password"></ion-input>
+              </ion-item> -->
+              <div style="display: flex; align-items: center; justify-content: center;">
+                <ion-button fill="outline" type="submit" (click)="onSubmit()" [disabled]="!usersForm.valid">
+                  <ion-icon slot="end" name="add"></ion-icon>
+                  Add
+                </ion-button>
+              </div>
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

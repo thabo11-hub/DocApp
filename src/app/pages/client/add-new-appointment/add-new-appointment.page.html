@@ -1,0 +1,42 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar >
+    <ion-title>Add new appointment</ion-title>
+    <ion-icon name="close" slot="end" size="larger" class="ion-padding" (click)="onCloseHandled()"></ion-icon>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content >
+  <!-- <form > *ngIf="submitted"> -->
+  <ion-card class="ion-align-self-center" >
+
+   <ion-item>
+     <ion-label >Appointment type</ion-label>
+     <ion-select ><!-- {{this.bookingList.description}}-->
+       <ion-select-option value="low">therapy</ion-select-option>
+       <ion-select-option value="middle">x-ray</ion-select-option>
+       <ion-select-option value="high" selected>Surgery</ion-select-option>
+      </ion-select>
+   </ion-item>
+  
+   <ion-item>
+     <ion-icon name="calendar-outline"slot="start"></ion-icon>
+     <ion-label >Date : </ion-label>
+      <ion-datetime  displayFormat="D MMM YYYY H:mm" ><!--{{this.bookingList.date}} --></ion-datetime>
+   </ion-item>
+ 
+   
+   <ion-item>
+      <ion-textarea placeholder="Appointment for : " ></ion-textarea>  <!-- {{this.bookingList.id}} -->
+   </ion-item>
+ 
+   <ion-item>
+    <ion-textarea  placeholder="Doctor : "> <!--{{this.bookingList.docId}} --> </ion-textarea>
+   </ion-item>
+   
+   <ion-button class="ion-margin" expand="block" shape="round" (click)="saveBooking()" >Book</ion-button>
+   <!-- <ion-button (click)="dismis()" shape="round" >close</ion-button> -->
+   
+  </ion-card>
+<!-- </form> -->
+</ion-content>

@@ -1,0 +1,87 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="primary" routerLink="/login">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button routerLink="/login">Login</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="header">
+    <h1>Create your account</h1>
+    <!-- <img src="../../../assets/Medicine-Logo-Graphics-4647232-1-1-580x386.jpg" class="smallLogo" /> -->
+  </div>
+
+  <form [formGroup]="registrationForm" (submit)="onSubmit()">
+    
+    <ion-list inset style="background-color: #bde2dd;">
+        <ion-item>
+            <ion-label position="floating">Name</ion-label>
+            <ion-input formControlName="name" autocomplete="off" name="name" type="text" required="true" minlength="2"
+            ></ion-input>
+
+            <!-- <small *ngIf="name.invalid && name.touched">
+              <p>Required</p>
+            </small> -->
+            <div *ngIf="name.invalid && name.touched">
+              <small *ngIf="name.errors?.required" class="text-danger"
+                >Required</small
+              >
+              <small *ngIf="name.errors?.minlength" class="text-danger"
+                >Your name must be atleast greater than 2 digits</small
+              >
+            </div>
+          </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input formControlName="email" autocomplete="off" name="email" type="text" required="true" maxlength="19"></ion-input>
+
+        <div *ngIf="email.invalid && email.touched">
+          <small *ngIf="email.errors?.required" class="text-danger"
+            >Required</small
+          >
+          <small *ngIf="email.errors?.minlength" class="text-danger"
+            >Your email must be atleast greater than 2 digits</small
+          >
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Phone</ion-label>
+        <ion-input formControlName="phone" autocomplete="off" name="phone" type="number" required="true" maxlength="10"></ion-input>
+
+        <div *ngIf="phone.invalid && phone.touched">
+          <small *ngIf="phone.errors?.required" class="text-danger"
+            >Required</small
+          >
+          <small *ngIf="phone.errors?.minlength" class="text-danger"
+            >Your phone must be atleast greater than 9 digits</small
+          >
+        </div>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input formControlName="password" autocomplete="off" name="password" type="password" required="true" maxlength="8"></ion-input>
+
+        <div *ngIf="password.invalid && password.touched">
+          <small *ngIf="password.errors?.required" class="text-danger"
+            >Required</small
+          >
+          <small *ngIf="password.errors?.maxLength" class="text-danger"
+            >Your password should be greater then 2</small
+          >
+        </div>
+      </ion-item>
+
+    </ion-list>
+
+    <ion-button expand="block" style="width: 15em;position: relative;left: 15%;" shape="round" color="secondary" type="submit" >Register</ion-button>
+    </form>
+</ion-content>
